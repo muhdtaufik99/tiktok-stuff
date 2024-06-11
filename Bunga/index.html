@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #text-container {
+        margin-top: 10px;
+      }
+      #hello-text {
+        font-size: 24px;
+        color: #333;
+      }
+      #ok-button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 18px;
+      }
+      #ok-button:hover {
+        background-color: #45a049;
+      }
+      #image-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        z-index: 1; /* Ensure the image is on top of other content */
+        animation: fadeIn 0.5s ease forwards; /* Apply fade-in animation */
+      }
+      #display-image {
+        max-width: 200px; /* Adjust the width of the image as needed */
+        height: auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0; /* Start with 0 opacity */
+        }
+        to {
+          opacity: 1; /* End with full opacity */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="text-container">
+      <p id="hello-text">Hai awak,<br />nak bunga tak?</p>
+      <button id="ok-button">Nak</button>
+    </div>
+
+    <div id="image-container">
+      <img
+        id="display-image"
+        src="https://media.tenor.com/3HXj24goQicAAAAi/tkthao219-quby.gif"
+        alt="Displayed Image"
+      />
+    </div>
+
+    <script>
+      const helloText = document.getElementById("hello-text");
+      const okButton = document.getElementById("ok-button");
+      const imageContainer = document.getElementById("image-container");
+      const displayImage = document.getElementById("display-image");
+
+      okButton.addEventListener("click", () => {
+        // Replace text with image
+        helloText.style.display = "none";
+        imageContainer.style.display = "block";
+        okButton.style.display = "none"; // Make the button invisible
+        displayImage.style.opacity = "1"; // Ensure the image is fully visible
+        displayImage.src =
+          "https://media.tenor.com/3HXj24goQicAAAAi/tkthao219-quby.gif"; // Replace 'path_to_your_image.jpg' with the actual path to your image
+      });
+    </script>
+  </body>
+</html>
